@@ -15,7 +15,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-
     <title>{block:SearchPage}Search results for "{SearchQuery}" - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}Michigan Ross Private Equity</title>
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -25,12 +24,10 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!--[if lte IE 7]><script src="http://static.tumblr.com/bf2tj8h/kmKmlvmxf/lte-ie7.js"></script><![endif]-->
-
-    <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> 
     
     <!-- Theme Options -->
-    <meta name="color:0001 Main Text Color" content="#34495E"> <!-- Navy Blue -->
+    <meta name="color:0001 Main Text Color" content="#34495E">
     <meta name="color:0002 Link Color" content="#f59d00">
     <meta name="color:0003 Link Hover Color" content="#2FE2BF">
     <meta name="color:0004 Post Page Bg Color" content="#ffffff">
@@ -87,7 +84,6 @@
     <meta name="color:0213 Dot Hover Color" content="#f59d00">
     <meta name="if:0214 Slider Auto Start" content="1">
 
-
     <!-- ICON BOXES Options -->
     <meta name="if:0301 Mission Boxes Show" content="1">
     <meta name="color:0302 IconBoxes Bg Color" content="#2c3e50">
@@ -102,7 +98,6 @@
     <meta name="text:0316 About Description 1" content="about">
     <meta name="if:0317 About Show" content="1">
     <meta name="image:0318 Mission Logo" content="0">
-
 
     <!-- TEXT + BUTTON Options -->
     <meta name="if:0401 TextButton Show" content="1">
@@ -309,7 +304,6 @@
     <link rel="stylesheet" type="text/css" href="http://static.tumblr.com/jqi4thm/oySnb2hjg/jquery.qtip.min.css">
 
     <!-- CSS -->
-    
     <style type="text/css">
     @charset "UTF-8";
     @import url(http://fonts.googleapis.com/css?family=Lato:400,700,900,900italic,700italic,400italic);
@@ -2247,10 +2241,7 @@ text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
 
         }
 </style>
-<!--<div class="typo-slider" style="display:none">
-    {block:If0202SlideImage1Image}<div class="slide slide1"><img src="{image:0202 Slide Image 1}" title="{text:0203 Slogan 1}"></div>{/block:If0202SlideImage1Image}
-    {block:If0205SlideImage2Image}<div class="slide slide2"><img src="{image:0205 Slide Image 2}" title="{text:0206 Slogan 2}"></div>{/block:If0205SlideImage2Image}
-    {block:If0208SlideImage3Image}<div class="slide slide3"><img src="{image:0208 Slide Image 3}" title="{text:0209 Slogan 3}"></div>{/block:If0208SlideImage3Image}-->
+
 </div>
 <!-- /SLIDER -->
 {/block:If0201SlideshowShow}
@@ -2298,7 +2289,7 @@ text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
 #Mission .mission-logo {
     max-width: 250px;
     max-height: 80px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 25px auto;
     text-align: center;
 }
 #Mission .mission-logo img {
@@ -2571,7 +2562,6 @@ function mce_success_cb(resp){
 
 </script>
 <!--End mc_embed_signup MAILCHIMP STUFF-->
-
 
 <style>
 .text-button-bg {
@@ -3090,38 +3080,6 @@ function mce_success_cb(resp){
         </div>
     </div>
     {/block:If0805Description}
-<!--        <div class="row team" style="margin-top: 20px">
-        {block:If0813Person1Name}<div class="grid_3 member needs-on-left">
-            {block:If0812Person1ImageImage}<div class="person-img" style="background-image: url('{image:0812 Person 1 Image}');"></div>{/block:If0812Person1ImageImage}
-            <h5>{text:0813 Person 1 Name}</h5>
-            <p>{text:0814 Person 1 Desc}</p>
-            <div class="team-social">
-                {block:If0815Person1Icon1}<a href="{text:0816 Person 1 Icon URL 1}" class="icon-{text:0815 Person 1 Icon 1}" target="_blank"></a>{/block:If0815Person1Icon1}
-                {block:If0817Person1Icon2}<a href="{text:0818 Person 1 Icon URL 2}" class="icon-{text:0817 Person 1 Icon 2}" target="_blank"></a>{/block:If0817Person1Icon2}
-            </div>
-            <p class="bio">{text:0818a Person 1 Desc 2}</p>
-        </div>{/block:If0813Person1Name}{block:If0820Person2Name}<div class="grid_3 member needs-on-right">
-            {block:If0819Person2ImageImage}<div class="person-img" style="background-image: url('{image:0819 Person 2 Image}');"></div>{/block:If0819Person2ImageImage}
-            <h5>{text:0820 Person 2 Name}</h5>
-            <p>{text:0821 Person 2 Desc}</p>
-            <div class="team-social">
-                {block:If0822Person2Icon1}<a href="{text:0823 Person 2 Icon URL 1}" class="icon-{text:0822 Person 2 Icon 1}" target="_blank"></a>{/block:If0822Person2Icon1}
-                {block:If0824Person2Icon2}<a href="{text:0825 Person 2 Icon URL 2}" class="icon-{text:0824 Person 2 Icon 2}" target="_blank"></a>{/block:If0824Person2Icon2}
-            </div>
-            <p class="bio">{text:0825a Person 2 Desc 2}</p>
-        </div>{/block:If0820Person2Name}
-<style>
-    @media only screen and (min-width:7680px) {
-        .needs-on-left:before {
-            content:'<div class="grid_3 member"></div>';
-        }
-        .needs-on-right:after {
-            content:'<div class="grid_3 member"></div>';
-        }
-
-        }
-</style>
-    </div>-->
     <div class="row team">
         <!-- MEMBER -->
             {block:If0827Person3Name}<div class="grid_4 member">
@@ -3143,18 +3101,7 @@ function mce_success_cb(resp){
                 {block:If0838Person4Icon2}<a href="{text:0839 Person 4 Icon URL 2}" class="icon-{text:0838 Person 4 Icon 2}" target="_blank"></a>{/block:If0838Person4Icon2}
             </div>
             <p class="bio">{text:0839a Person 4 Desc 2}</p>
-        </div>{/block:If0834Person4Name}<!--
-            {block:If0841Person5Name}<div class="grid_4 member">
-            {block:If0840Person5ImageImage}<div class="person-img" style="background-image: url('{image:0840 Person 5 Image}');"></div>{/block:If0840Person5ImageImage}
-            <h5>{text:0841 Person 5 Name}</h5>
-            <p>{text:0842 Person 5 Desc}</p>
-            <div class="team-social">
-                {block:If0843Person5Icon1}<a href="{text:0844 Person 5 Icon URL 1}" class="icon-{text:0843 Person 5 Icon 1}"></a>{/block:If0843Person5Icon1}
-                {block:If0845Person5Icon2}<a href="{text:0846 Person 5 Icon URL 2}" class="icon-{text:0845 Person 5 Icon 2}"></a>{/block:If0845Person5Icon2}
-            </div>
-            <p class="bio">{text:0846a Person 5 Desc 2}</p>
-        </div>{/block:If0841Person5Name}
-        -->{block:If0848Person6Name}<div class="grid_4 member">
+        </div>{/block:If0834Person4Name}{block:If0848Person6Name}<div class="grid_4 member">
             {block:If0847Person6ImageImage}<div class="person-img" style="background-image: url('{image:0847 Person 6 Image}');"></div>{/block:If0847Person6ImageImage}
             <h5>{text:0848 Person 6 Name}</h5>
             <p>{text:0849 Person 6 Desc}</p>
@@ -3515,8 +3462,6 @@ $(function() {
 
 
 <!-- GS inserted Google Analytics code -->
-
-
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -3526,7 +3471,6 @@ $(function() {
   ga('create', 'UA-54306197-1', 'auto');
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
-
 </script>
 
 

@@ -2351,12 +2351,10 @@ text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
 {/block:If0317AboutShow}
 {block:If0401TextButtonShow}
 
-<!-- TEXT + BUTTON -->
 <div id="mc_embed_signup" class="text-button-bg">
     <div class="row">
         <div class="grid_12">
         <h2>{text:0407 Subscribe Headline}</h2>
-            <!--<p>{text:0411 Subscribe Text}</p>-->
             <form action="http://mrosspe.us8.list-manage.com/subscribe/post?u=06e461538b842ec7464c17546&amp;id=b38721edae" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                 <div class="form-subscribe mc-field-group">
                     <input type="email" required="" placeholder="e-mail address" name="EMAIL" class="required email" id="mce-EMAIL"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="submit">
@@ -2372,25 +2370,7 @@ text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
     </div>
 </div>
 
-<!-- MAILCHIMP STUFF -->
 
-
-<!-- Begin MailChimp Signup Form 
-<div id="mc_embed_signup">
-<form action="http://mrosspe.us8.list-manage.com/subscribe/post?u=06e461538b842ec7464c17546&amp;id=b38721edae" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <h2>Subscribe to our mailing list</h2>
-<div class="mc-field-group">
-    <label for="mce-EMAIL">Email Address </label>
-    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-</div>
-    <div id="mce-responses" class="clear">
-        <div class="response" id="mce-error-response" style="display:none"></div>
-        <div class="response" id="mce-success-response" style="display:none"></div>
-    </div>
-    <div style="position: absolute; left: -5000px;"><input type="text" name="b_06e461538b842ec7464c17546_b38721edae" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-</form>
-</div>-->
 <script type="text/javascript">
 var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';
 try {
@@ -2602,46 +2582,68 @@ function mce_success_cb(resp){
     margin-bottom: 25px;
 }
 .form-subscribe input, .form-subscribe button {
-height: 55px;
-line-height: normal;
-font-size: 16px;
-font-weight: 700;
-border: 0;
-box-shadow: none;
-transition: all 0.25s ease-in-out 0s;
--moz-transition: all 0.25s ease-in-out 0s;
--webkit-transition: all 0.25s ease-in-out 0s;
--o-transition: all 0.25s ease-in-out 0s;
--ms-transition: all 0.25s ease-in-out 0s;
+    height: 55px;
+    line-height: normal;
+    font-size: 16px;
+    font-weight: 700;
+    border: 0;
+    box-shadow: none;
+    transition: all 0.25s ease-in-out 0s;
+    -moz-transition: all 0.25s ease-in-out 0s;
+    -webkit-transition: all 0.25s ease-in-out 0s;
+    -o-transition: all 0.25s ease-in-out 0s;
+    -ms-transition: all 0.25s ease-in-out 0s;
 }
 .form-subscribe .email {
-width: 230px;
-max-width: 43%;
-padding: 0 30px;
-background-color: #fff;
-color: #bdc3c7;
--webkit-border-top-left-radius: 6px;
--webkit-border-bottom-left-radius: 6px;
--moz-border-radius-topleft: 6px;
--moz-border-radius-bottomleft: 6px;
-border-top-left-radius: 6px;
-border-bottom-left-radius: 6px;
+    width: 230px;
+    max-width: 43%;
+    padding: 0 30px;
+    background-color: #fff;
+    color: #bdc3c7;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    -webkit-border-top-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-bottomright: 0px;
+    border-bottom-right-radius: 0px;
 }
 .form-subscribe .submit {
-width: 100px;
-text-align: center;
-padding: 0;
-background-color: {color:0414 SubscribeButton Color};
-color: #fff;
--webkit-border-top-right-radius: 6px;
--moz-border-radius-topright: 6px;
-border-top-right-radius: 6px;
--webkit-border-bottom-right-radius: 6px;
--moz-border-radius-bottomright: 6px;
-border-bottom-right-radius: 6px;
+    width: 100px;
+    text-align: center;
+    padding: 0;
+    background-color: {color:0414 SubscribeButton Color};
+    color: #fff;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topright: 6px;
+    border-top-right-radius: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    -moz-border-radius-bottomright: 6px;
+    border-bottom-right-radius: 6px;
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 .form-subscribe .submit:hover {
     background-color: {color:0415 SubscribeButton Hover Color};
+}
+@media only screen and (max-width: 480px) {
+    .form-subscribe .email {
+        width: 190px;
+        
+        float: left;
+    }
+    .form-subscribe .submit {
+        float: left;
+    }
 }
 #mce-responses {
     font-size: 20px;

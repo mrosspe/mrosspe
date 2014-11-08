@@ -405,6 +405,18 @@
         -ms-transition: none;
         {block:IfNot0101LogoImageImage}display: none !important;{/block:IfNot0101LogoImageImage}
     }
+    .logo-top-mobile {
+        position: absolute;
+        left: 50%;
+        margin-left: -23px;
+        text-align: center;
+        height: 46px;
+        width: 46px;
+        margin-top: 2px;
+        background: url('{block:If0101LogoImageImage}{image:0101 Logo Image}{/block:If0101LogoImageImage}') no-repeat center center;
+        background-size: cover;
+        z-index: 999;
+    }
     .logo {
         width: {text:0102 Logo Width}px;
         height: {text:0103 Logo Height}px;
@@ -1828,18 +1840,27 @@
     @media only screen and (max-width: 767px) {
         
         /***** Menu *****/
+
+        .menu-bg > .row {
+            width: 100%;
+            margin: 0%;
+        }
         .menu-bg {
             position: relative;
         }
         .menu {
             height: auto;
+            width: 100%;
+            margin: 0%;
         }
         .menu-mobile {
             height: auto;
             line-height: 50px;
+            margin-left: 5px;
         }
         .menu-right {
             float: right;
+            margin-right: 5px;
         }
         .menu-button {
             width: 50px;
@@ -2149,9 +2170,10 @@
 <body>
 
 <!-- MENU -->
-<a class="logo-top show-phone" href="/"></a>
+<!-- <a class="logo-top show-phone" href="/"></a> -->
 <div class="menu-bg">
     <div class="row">
+        <a class="logo-top-mobile show-phone" href="/#"></a>
         <div class="grid_12 menu">
             <a class="logo hide-phone top-site" href="/#"></a>
             <div class="menu-mobile">
@@ -2168,6 +2190,7 @@
                     {block:If0020CustomTag5}<li><a href="/#{text:0020 Custom Tag 5}">{text:0020 Custom Tag 5}</a></li>{/block:If0020CustomTag5}
                 </ul>
             </div>
+            
             <div class="menu-right">
                 {block:If0110SocialIcon1}<a class="menu-social icon-linkedin-2" href="{text:0111 Social URL 1}"><img src="{image:0115 LinkedIn Revised Image}"/></a>{/block:If0110SocialIcon1}
                 <style>
@@ -2564,15 +2587,18 @@ function mce_success_cb(resp){
 <!--End mc_embed_signup MAILCHIMP STUFF-->
 
 <style>
+#mc_embed_signup {
+
+}
 .text-button-bg {
     text-align: center;
 }
 .text-button-bg h2 {
     font-size: 32px;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 .form-subscribe input, .form-subscribe button {
-    height: 55px;
+    height: 60px;
     line-height: normal;
     font-size: 16px;
     font-weight: 700;

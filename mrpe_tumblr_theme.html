@@ -1157,6 +1157,7 @@
     /***** Pagination *****/
     .pagination {
         margin-top: 30px;
+        text-align: center;
     }
     .pagination a {
         color: {color:0009 Pagination Button Txt Color};
@@ -1174,7 +1175,7 @@
         background-color: {color:0012 Pagination Button Bg Hover Color};
     }
     .pagination .previous {
-        float: left;
+        margin: 0 auto;
     }
     .pagination .next {
         float: right;
@@ -1711,6 +1712,7 @@
     }
     #masonry-container {
         clear: both;
+        height: auto;
     }
 
 
@@ -2706,6 +2708,25 @@ function mce_success_cb(resp){
 
 <!-- POSTS -->
 <a class="anchor" id="news"></a>
+<script>
+$(document).ready(function() {
+    $("#mrpeprevious").on('click',function(e){
+        e.preventDefault();
+        var xhr=$.get($(this).attr("href"),function(nextpage){ 
+            $loaded=$(nextpage); 
+            var postsHTML=$loaded.find(".mrpepost");
+            var nextURL=$loaded.find("#mrpeprevious");
+            $(".mrpepostcontainer").append(postsHTML);
+
+            if (nextURL.length != 0){
+                $("#mrpeprevious").attr("href",nextURL.attr("href"));
+            } else {
+                $("#mrpeprevious").hide();
+            }
+        })
+    });
+});
+</script>
 <div class="posts-bg" id="News">
     <div class="row">
 
@@ -2722,8 +2743,9 @@ function mce_success_cb(resp){
     <h2 style="text-align:center;">News</h2>
     <div id="masonry-container">
 {block:Posts}
+
 {block:Text}
-        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-text">
+        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-text mrpepost">
             {block:Title}<h3 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
             {block:Date}
             <div class="meta clearfix">
@@ -2740,7 +2762,7 @@ function mce_success_cb(resp){
 {/block:Text}
 
 {block:Photo}
-        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-photo">
+        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-photo mrpepost">
             <div class="meta clearfix">
                 {block:Date}<a href="{Permalink}" class="date"><span class="icon-image"></span>{Month} {DayOfMonth}, {Year}</a>{/block:Date}
                 <!--notes-->
@@ -2788,7 +2810,7 @@ function mce_success_cb(resp){
 {/block:Photo}
 
 {block:Photoset}
-        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-photoset">
+        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-photoset mrpepost">
             <div class="meta clearfix">
                 {block:Date}<a href="{Permalink}" class="date"><span class="icon-images"></span>{Month} {DayOfMonth}, {Year}</a>{/block:Date}
                 <!--<span class="notes">{LikeButton size="16"}</span>-->
@@ -2830,7 +2852,7 @@ function mce_success_cb(resp){
 {/block:Photoset}
 
 {block:Quote}
-        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-quote">
+        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-quote mrpepost">
             {block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
             <div class="meta clearfix">
                 {block:Date}<a href="{Permalink}" class="date"><span class="icon-quotes-left"></span>{Month} {DayOfMonth}, {Year}</a>{/block:Date}
@@ -2850,7 +2872,7 @@ function mce_success_cb(resp){
 {/block:Quote}
 
 {block:Link}
-        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-link">
+        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-link mrpepost">
             {block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
             <div class="meta clearfix">
                 {block:Date}<a href="{Permalink}" class="date"><span class="icon-link"></span>{Month} {DayOfMonth}, {Year}</a>{/block:Date}
@@ -2877,7 +2899,7 @@ function mce_success_cb(resp){
 {/block:Link}
 
 {block:Chat}
-        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-chat">
+        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-chat mrpepost">
             {block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
             <div class="meta clearfix">
                 {block:Date}<a href="{Permalink}" class="date"><span class="icon-bubbles-3"></span>{Month} {DayOfMonth}, {Year}</a>{/block:Date}
@@ -2898,7 +2920,7 @@ function mce_success_cb(resp){
 {/block:Chat}
 
 {block:Audio}
-        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-audio">
+        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-audio mrpepost">
             <div class="meta clearfix">
                 {block:Date}<a href="{Permalink}" class="date"><span class="icon-music"></span>{Month} {DayOfMonth}, {Year}</a>{/block:Date}
                 <!--<span class="reblog"><span class="reblog-btn">{ReblogButton size="16"}</span>Reblog</span>-->
@@ -2928,7 +2950,7 @@ function mce_success_cb(resp){
 {/block:Audio}
 
 {block:Video}
-        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-video">
+        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-video mrpepost">
             <div class="meta clearfix">
                 {block:Date}<a href="{Permalink}" class="date"><span class="icon-film"></span>{Month} {DayOfMonth}, {Year}</a>{/block:Date}
                 <!--<span class="reblog"><span class="reblog-btn">{ReblogButton size="16"}</span>Reblog</span>-->
@@ -2949,7 +2971,7 @@ function mce_success_cb(resp){
 {/block:Video}
 
 {block:Answer}
-        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-answer">
+        <article class="{block:IndexPage}{block:IfNot0019ShowPostsin2Columns}grid_12{/block:IfNot0019ShowPostsin2Columns}{block:If0019ShowPostsin2Columns}grid_6{/block:If0019ShowPostsin2Columns}{/block:IndexPage} {block:PermalinkPage}grid_12{/block:PermalinkPage} post-answer mrpepost">
             {block:Date}
             <div class="meta clearfix">
                 <a href="{Permalink}" class="date"><span class="icon-bubbles"></span>{Month} {DayOfMonth}, {Year}</a>
@@ -2999,6 +3021,14 @@ function mce_success_cb(resp){
     {/block:If0005DisqusUsername}
 {/block:PermalinkPage}
 
+    <div class="mrpepostcontainer"></div>
+{block:IndexPage}
+    {block:Pagination}
+        <div class="pagination grid_12">
+            {block:NextPage}<a href="{NextPage}" id="mrpeprevious" class="previous"></span>More Articles</a>{/block:NextPage}
+        </div>
+    {/block:Pagination}
+{/block:IndexPage}
 <!-- {block:IndexPage}
     {block:Pagination}
         <div class="pagination grid_12">
@@ -3007,6 +3037,7 @@ function mce_success_cb(resp){
         </div>
     {/block:Pagination}
 {/block:IndexPage} -->
+    
     </div>
 </div>
 

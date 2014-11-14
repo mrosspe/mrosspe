@@ -545,14 +545,14 @@
         font-weight: 900;
         font-size: 32px;
         line-height: 1.2;
-        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.40);
     }
     .bx-caption span.small-text {
         font-weight: 700;
         font-size: 20px;
         line-height: 25px;
         color: #fff;
-        text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.45);
     }
     .bx-wrapper .slide1 .bx-caption span {
         color:{color:0204 Slogan Color 1};
@@ -1723,8 +1723,8 @@
             line-height: 1.2;
         }
         .bx-caption span.small-text {
-            font-size: 20px;
-            line-height: 30px;
+            /*font-size: 20px;
+            line-height: 30px;*/
             color: #fff;
         }
         
@@ -1782,8 +1782,8 @@
             line-height: 35px;
         }
         .bx-caption span.small-text {
-            font-size: 15px;
-            line-height: 25px;
+           /* font-size: 15px;
+            line-height: 25px;*/
         }
     
         /***** Product Box *****/
@@ -1925,8 +1925,8 @@
             line-height: 25px;
         }
         .bx-caption span.small-text {
-            font-size: 11px;
-            line-height: 18px;
+            /*font-size: 11px;
+            line-height: 18px;*/
         }
         .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
             bottom: 10px;
@@ -2097,8 +2097,8 @@
             line-height: 30px;
         }
         .bx-caption span.small-text {
-            font-size: 13px;
-            line-height: 20px;
+            /*font-size: 13px;
+            line-height: 20px;*/
         }
         
         /***** Product Box *****/
@@ -2655,11 +2655,14 @@ function mce_success_cb(resp){
 @media only screen and (max-width: 480px) {
     .form-subscribe .email {
         width: 190px;
-        
         float: left;
+        margin-left: 6px;
     }
     .form-subscribe .submit {
         float: left;
+    }
+    #mc_embed_signup {
+        margin: 0 auto;
     }
 }
 #mce-responses {
@@ -2996,14 +2999,14 @@ function mce_success_cb(resp){
     {/block:If0005DisqusUsername}
 {/block:PermalinkPage}
 
-{block:IndexPage}
+<!-- {block:IndexPage}
     {block:Pagination}
         <div class="pagination grid_12">
             {block:NextPage}<a href="{NextPage}" class="previous"><span class="icon-arrow-left-2"></span>Previous</a>{/block:NextPage}
             {block:PreviousPage}<a href="{PreviousPage}" class="next">Next<span class="icon-arrow-right-2"></span></a>{/block:PreviousPage}
         </div>
     {/block:Pagination}
-{/block:IndexPage}
+{/block:IndexPage} -->
     </div>
 </div>
 

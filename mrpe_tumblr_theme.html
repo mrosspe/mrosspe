@@ -1002,11 +1002,11 @@
     
     /***** Posts *****/
     .posts-bg {
-        padding: 140px 0 70px 0;
-        {block:IndexPage}
-        padding: 70px 0;
-        {/block:IndexPage}
+        padding: 130px 0 70px 0;
         background-color:{color:0004 Post Page Bg Color};
+    }
+    .posts-bg.page1{
+        padding-top: 70px;
     }
     .posts-bg article {
         color: {color:0001 Main Text Color};
@@ -2220,11 +2220,22 @@
 
 {block:If0201SlideshowShow}
 <!-- SLIDER -->
-<div class="typo-slides">
+
+<div class="typo-slides page{CurrentPage} dontdisplay" >
+
 <img src="http://static.tumblr.com/jqi4thm/yX8na2ldf/conf-room-600.png">
 <div class="bx-caption"><span class="big-text">Welcome to Michigan Ross Private Equity. </span><span class="small-text"> A new initiative at The Ross School of Business</span></div>
 </div>
 <style>
+
+.dontdisplay {
+  display:none;
+}
+
+.page1.dontdisplay{
+  display:block;
+}
+
 .typo-slides {
     position: relative;
     background: #001b35;
@@ -2325,8 +2336,8 @@ text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.25);
 <!-- /ICON BOXES -->
 {/block:If0301MissionBoxesShow}
 {block:If0317AboutShow}
-<a class="anchor" id="about"></a>
-<div class="about-boxes-bg" id="About">
+<a class="anchor page{CurrentPage} dontdisplay" id="about"></a>
+<div class="about-boxes-bg page{CurrentPage} dontdisplay" id="About">
         <div class="about-box row">
             <div class="grid_12">
                 <h2>{text:0315 About Title 1}</h2>
@@ -2708,26 +2719,7 @@ function mce_success_cb(resp){
 
 <!-- POSTS -->
 <a class="anchor" id="news"></a>
-<script>
-$(document).ready(function() {
-    $("#mrpeprevious").on('click',function(e){
-        e.preventDefault();
-        var xhr=$.get($(this).attr("href"),function(nextpage){ 
-            $loaded=$(nextpage); 
-            var postsHTML=$loaded.find(".mrpepost");
-            var nextURL=$loaded.find("#mrpeprevious");
-            $(".mrpepostcontainer").append(postsHTML);
-
-            if (nextURL.length != 0){
-                $("#mrpeprevious").attr("href",nextURL.attr("href"));
-            } else {
-                $("#mrpeprevious").hide();
-            }
-        })
-    });
-});
-</script>
-<div class="posts-bg" id="News">
+<div class="posts-bg page{CurrentPage}" id="News">
     <div class="row">
 
 {block:SearchPage}
@@ -3025,7 +3017,8 @@ $(document).ready(function() {
 {block:IndexPage}
     {block:Pagination}
         <div class="pagination grid_12">
-            {block:NextPage}<a href="{NextPage}" id="mrpeprevious" class="previous"></span>More Articles</a>{/block:NextPage}
+            {block:PreviousPage}<a href="{PreviousPage}" class="previous"></span>Newer Articles</a>{/block:PreviousPage}
+            {block:NextPage}<a href="{NextPage}" class="previous"></span>Older Articles</a>{/block:NextPage}
         </div>
     {/block:Pagination}
 {/block:IndexPage}

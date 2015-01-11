@@ -308,6 +308,7 @@
     
     html {
         min-height: 100%;
+        position: relative;
     }
     body {
         background-color: {color:0018 Body Bg Color};
@@ -316,7 +317,7 @@
         -webkit-font-smoothing: antialiased;
         text-rendering:optimizeLegibility;
         min-height: 100%;
-        margin-bottom: 322px;
+        margin-bottom: 312px;
     }
     a { 
         color: {color:0002 Link Color};
@@ -648,7 +649,7 @@
         line-height: 30px;
         color: {color:0408 TextButton Text Color};
     }
-    a.btn-text {
+    .btn-text {
         display: block;
         padding: 15px 22px;
         background-color: {color:0409 TextButton Button Bg Color};
@@ -661,7 +662,7 @@
         -moz-border-radius: 6px;
         border-radius: 6px;
     }   
-    a.btn-text:hover {
+    .btn-text:hover {
         color: {color:0413 TextButton Button Text Hover Color};
         background-color: {color:0410 TextButton Button Bg Hover Color};
     }
@@ -934,7 +935,7 @@
         background-color: {color:1201 Footer Bg Color};
     }
     .footer-wrapper {
-        height: 322px;
+        height: 312px;
         width: 100%;
         position: absolute;
         bottom: 0;
@@ -1006,7 +1007,7 @@
     
     /***** Posts *****/
     .posts-bg {
-        padding: 130px 0 70px 0;
+        padding: 30px 0 40px 0;
         background-color:{color:0004 Post Page Bg Color};
         min-height: 500px;
     }
@@ -1773,7 +1774,7 @@
         }
         
         /***** Button *****/
-        #Join .grid_6 a.btn-text {
+        #Join .grid_6 .btn-text {
             min-width: 200px !important;
         }
         
@@ -1817,7 +1818,7 @@
         }
         
         /***** Button *****/
-        #Join .grid_6 a.btn-text {
+        #Join .grid_6 .btn-text {
             min-width: 280px !important;
             margin-top: 20px !important;
         }
@@ -1841,10 +1842,10 @@
         }
     
         body {
-            margin-bottom: 343px;
+            margin-bottom: 339px;
         }
         .footer-wrapper {
-            height: 343px;
+            height: 339px;
         }
     }   
     
@@ -1928,6 +1929,10 @@
             background-size: auto 100%;
             width: 100%;
         }
+
+        .posts-bg, .posts-bg.page1 {
+            padding-top: 10px;
+        }
         
         /***** Slider Block *****/
         .bx-wrapper .bx-caption {
@@ -1955,7 +1960,7 @@
             margin: 0 10px 20px;
         }
         
-        #Join .grid_6 a.btn-text {
+        .grid_6 .btn-text {
             min-width: 235px !important;
             margin-top: 20px !important;
         }
@@ -2178,16 +2183,16 @@
         }
         
         /***** Button ******/
-        #Join .grid_6 a.btn-text {
+        #Join .grid_6 .btn-text {
             min-width: 160px !important;
             margin-top: 0px !important;
         }
 
         body {
-            margin-bottom: 472px;
+            margin-bottom: 428px;
         }
         .footer-wrapper {
-            height: 472px;
+            height: 428px;
         }
         
     }
@@ -2757,7 +2762,7 @@ function mce_success_cb(resp){
         <p class="search-box">Category: <strong style="text-transform: capitalize;">{Tag}</strong></p>
     </div>
 {/block:TagPage}
-    <h2 style="text-align:center; margin-top: 50px;">News</h2>
+    <h2 style="text-align:center; padding-top: 50px;">News</h2>
     <div id="masonry-container">
 {block:Posts}
 
@@ -3076,14 +3081,20 @@ function mce_success_cb(resp){
         </div>-->
         <div class="offset_3 grid_6">
             <a class="btn-text button_1" href="http://ross.campusgroups.com/mrosspe/club_signup" id="membership-student" target="_blank">{text:1326 Student Button}</a>
-            <a class="btn-text button_2" href="#" target="_blank" id="membership-purchase">{text:1325 Purchase Button}</a>
+            <!-- <a class="btn-text button_2" href="#" target="_blank" id="membership-purchase">{text:1325 Purchase Button}</a> -->
 
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <form action="https://www.paypal.com/cgi-bin/webscr" id="membership-purchase-form" method="post" target="_top">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="JZZT94MHKLTFA">
-            <input type="submit" class="btn-text button_2" id="membership-purchase" name="submit" value="{text:1325 Purchase Button}">
+            <a href="#" class="btn-text button_2" id="membership-purchase" name="submit">{text:1325 Purchase Button}</a>
             </form>
+            <script>
+                $("#membership-purchase").click( function(e){
+                    e.preventDefault();
+                    $("#membership-purchase-form").submit();
+                });
 
+            </script>
 
         </div>
     </div>
@@ -3097,22 +3108,23 @@ function mce_success_cb(resp){
     background-attachment: fixed;
     padding: 70px 0;
 }
-#Join .grid_6 a.btn-text {
+.grid_6 .btn-text {
     min-width: 160px;
     width: 25%;
     margin: 0px 10px;
 }
-#Join .grid_12 a.btn-text {
+.grid_12 .btn-text {
     min-width: 220px;
     width: 15%;
     margin: 0px auto;
     font-size: 18px;
 }
-#Join a.btn-text.button_1 {
+#Join .btn-text.button_1 {
     float: left;
 }
-#Join a.btn-text.button_2 {
+.btn-text.button_2 {
     float: right;
+    border: 0;
 }
 
 #Join h2 {
@@ -3120,12 +3132,12 @@ function mce_success_cb(resp){
     color: #fff;
 }
     @media only screen and (max-width: 767px) {
-#Join .button_1 a.btn-text {
+#Join .button_1 .btn-text {
     float: none;
     width: 90%;
     margin-bottom: 25px;
 }
-#Join .button_2 a.btn-text {
+.button_2 .btn-text {
     float: none;
     width: 90%;
 }

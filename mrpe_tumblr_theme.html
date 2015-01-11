@@ -264,12 +264,6 @@
     <meta name="text:1309 Social Icon 2 URL" content="#">
     <meta name="text:1310 Social Icon 3" content="paypal-2">
     <meta name="text:1311 Social Icon 3 URL" content="#">
-    <meta name="image:1320 Stripe Logo" content="http://static.tumblr.com/pqpk3dn/y4qmm0k9x/logo.jpg">
-    <meta name="text:1321 Stripe Key" content="pk_test_830hTxdj8N2jKeJCBpacNDPH">
-    <meta name="text:1322 Stripe Description" content="Michigan Ross Private Equity">
-    <meta name="text:1323 Stripe Amount" content="5000">
-    <meta name="text:1324 Stripe Payment Name" content="Subscription Fee ($50)">
-    <meta name="text:1327 Stripe Pay Btn Text" content="Pay {{amount}}">
     <meta name="text:1325 Purchase Button" content="Purchase Membership">
     <meta name="text:1326 Student Button" content="Student">
     
@@ -296,8 +290,6 @@
     <script src="http://static.tumblr.com/bf2tj8h/7zImkiuq6/jquery.fancybox.pack.js?v=2.1.4"></script>
     <!-- Masonry Javascript file -->
     <script src="http://static.tumblr.com/pqpk3dn/bEDmq1gtd/masonry.pkgd.min_1_.js"></script>
-    <!-- Stripe Javascript File -->
-    <script src="https://checkout.stripe.com/checkout.js"></script>
     
     <!-- qTip2 -->
     <script src="http://static.tumblr.com/jqi4thm/VVYnb2hjl/jquery.qtip.min.js"></script>
@@ -314,12 +306,17 @@
     @import url(http://static.tumblr.com/pwvp6io/8nXmlyv9i/icons.css);
     @import url(http://static.tumblr.com/bf2tj8h/Eccmlyvgn/jquery.bxslider.css);
     
+    html {
+        min-height: 100%;
+    }
     body {
         background-color: {color:0018 Body Bg Color};
         font: 15px/22px "Lato", "Century Gothic", "Trebuchet MS", Helvetica, sans-serif;
         color: {color:0001 Main Text Color};
         -webkit-font-smoothing: antialiased;
         text-rendering:optimizeLegibility;
+        min-height: 100%;
+        margin-bottom: 322px;
     }
     a { 
         color: {color:0002 Link Color};
@@ -936,6 +933,13 @@
         padding: 50px 0;
         background-color: {color:1201 Footer Bg Color};
     }
+    .footer-wrapper {
+        height: 322px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
     .footer-col {
         color: {color:1203 Text Color};
     }
@@ -1004,6 +1008,7 @@
     .posts-bg {
         padding: 130px 0 70px 0;
         background-color:{color:0004 Post Page Bg Color};
+        min-height: 500px;
     }
     .posts-bg.page1{
         padding-top: 70px;
@@ -1835,6 +1840,12 @@
             font-size: 32px;
         }
     
+        body {
+            margin-bottom: 343px;
+        }
+        .footer-wrapper {
+            height: 343px;
+        }
     }   
     
     
@@ -2087,6 +2098,13 @@
             text-align: center;
         }
 
+        body {
+            margin-bottom: 450px;
+        }
+        .footer-wrapper {
+            height: 450px;
+        }
+
     }   
     
         
@@ -2163,6 +2181,13 @@
         #Join .grid_6 a.btn-text {
             min-width: 160px !important;
             margin-top: 0px !important;
+        }
+
+        body {
+            margin-bottom: 472px;
+        }
+        .footer-wrapper {
+            height: 472px;
         }
         
     }
@@ -2732,7 +2757,7 @@ function mce_success_cb(resp){
         <p class="search-box">Category: <strong style="text-transform: capitalize;">{Tag}</strong></p>
     </div>
 {/block:TagPage}
-    <h2 style="text-align:center;">News</h2>
+    <h2 style="text-align:center; margin-top: 50px;">News</h2>
     <div id="masonry-container">
 {block:Posts}
 
@@ -3038,10 +3063,9 @@ function mce_success_cb(resp){
 
 
 {block:IndexPage}
-{block:If1321StripeKey}
 <!-- JOIN -->
-<a class="anchor" id="join"></a>
-<div id="Join">
+<a class="anchor page{CurrentPage} dontdisplay" id="join"></a>
+<div class="page{CurrentPage} dontdisplay" id="Join">
     <div class="row join">
         <h2>Join</h2>
         <!--<div class="grid_6 button_1">
@@ -3052,33 +3076,19 @@ function mce_success_cb(resp){
         </div>-->
         <div class="offset_3 grid_6">
             <a class="btn-text button_1" href="http://ross.campusgroups.com/mrosspe/club_signup" id="membership-student" target="_blank">{text:1326 Student Button}</a>
-            <a class="btn-text button_2" href="#" id="membership-purchase">{text:1325 Purchase Button}</a>
-            <script>
-              var handler = StripeCheckout.configure({
-                key: '{text:1321 Stripe Key}',
-                image: '{block:If1320StripeLogoImage}{image:1320 Stripe Logo}{/block:If1320StripeLogoImage}',
-                token: function(token) {
-                  // Use the token to create the charge with a server-side script.
-                  // You can access the token ID with `token.id`
-                }
-              });
-            
-              document.getElementById('membership-purchase').addEventListener('click', function(e) {
-                // Open Checkout with further options
-                handler.open({
-                  name: '{text:1322 Stripe Description}',
-                  description: '{text:1324 Stripe Payment Name}',
-                  amount: '{block:If1323StripeAmount}{text:1323 Stripe Amount}{/block:If1323StripeAmount}',
-                  allowRememberMe: false,
-                  panelLabel: '{text:1327 Stripe Pay Btn Text}'
-                });
-                e.preventDefault();
-              });
-            </script>
+            <a class="btn-text button_2" href="#" target="_blank" id="membership-purchase">{text:1325 Purchase Button}</a>
+
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="JZZT94MHKLTFA">
+            <input type="submit" class="btn-text button_2" id="membership-purchase" name="submit" value="{text:1325 Purchase Button}">
+            </form>
+
+
         </div>
     </div>
 </div>
-{/block:If1321StripeKey}
+
 <style>
 #Join {
     text-align: center;
@@ -3228,19 +3238,36 @@ function mce_success_cb(resp){
 {/block:If1101TwitterShow}
 
 <!-- FOOTER -->
-<div class="footer-bg">
-    <div class="row footer">
-        <div class="grid_3 footer-col">
-            {block:If1206ContactWidgetTitle}<h4>{text:1206 Contact Widget Title}</h4>{/block:If1206ContactWidgetTitle}
-            {block:If1207ContactAddress}<p style="margin-bottom:0px;">{text:1207 Contact Address}</p>{/block:If1207ContactAddress}
-            {block:If1208ContactPhone}<p>{text:1208 Contact Phone}</p>{/block:If1208ContactPhone}
-            {block:If1209ContactEmail}
-            <p>
-            <script>var email = "{text:1209 Contact Email}";document.write("<a href='mailto:"+email+"'>"+email+"</a>")</script>
-            </p>{/block:If1209ContactEmail}
+<div class="footer-wrapper">
+    <div class="footer-bg">
+        <div class="row footer">
+            <div class="grid_3 footer-col">
+                {block:If1206ContactWidgetTitle}<h4>{text:1206 Contact Widget Title}</h4>{/block:If1206ContactWidgetTitle}
+                {block:If1207ContactAddress}<p style="margin-bottom:0px;">{text:1207 Contact Address}</p>{/block:If1207ContactAddress}
+                {block:If1208ContactPhone}<p>{text:1208 Contact Phone}</p>{/block:If1208ContactPhone}
+                {block:If1209ContactEmail}
+                <p>
+                <script>var email = "{text:1209 Contact Email}";document.write("<a href='mailto:"+email+"'>"+email+"</a>")</script>
+                </p>{/block:If1209ContactEmail}
+            </div>
+            <div class="grid_9 footer-col">
+                <img class="logo-bottom" src="{image:1213 Footer Image}"/>
+            </div>
         </div>
-        <div class="grid_9 footer-col">
-            <img class="logo-bottom" src="{image:1213 Footer Image}"/>
+    </div>
+    <!-- COPYRIGHTS -->
+    <div class="copyrights-bg">
+        <div class="row copyrights">
+            <div class="grid_6 copyrights-col">
+                <p><span>{block:If1302CopyrightText}{text:1302 Copyright Text}{/block:If1302CopyrightText}</span></p>
+            </div>
+            <div class="grid_6 copyrights-col">
+                <p class="copyright-icons">
+                    {block:If1306SocialIcon1}<a href="{text:1307 Social Icon 1 URL}" class="icon-{text:1306 Social Icon 1}"></a>{/block:If1306SocialIcon1}
+                    {block:If1308SocialIcon2}<a href="{text:1309 Social Icon 2 URL}" class="icon-{text:1308 Social Icon 2}"></a>{/block:If1308SocialIcon2}
+                    {block:If1310SocialIcon3}<a href="{text:1311 Social Icon 3 URL}" class="icon-{text:1310 Social Icon 3}"></a>{/block:If1310SocialIcon3}
+                </p>
+            </div>
         </div>
     </div>
 </div>
@@ -3253,21 +3280,7 @@ function mce_success_cb(resp){
 </style>
 <!-- /FOOTER -->
 
-<!-- COPYRIGHTS -->
-<div class="copyrights-bg">
-    <div class="row copyrights">
-        <div class="grid_6 copyrights-col">
-            <p><span>{block:If1302CopyrightText}{text:1302 Copyright Text}{/block:If1302CopyrightText}</span></p>
-        </div>
-        <div class="grid_6 copyrights-col">
-            <p class="copyright-icons">
-                {block:If1306SocialIcon1}<a href="{text:1307 Social Icon 1 URL}" class="icon-{text:1306 Social Icon 1}"></a>{/block:If1306SocialIcon1}
-                {block:If1308SocialIcon2}<a href="{text:1309 Social Icon 2 URL}" class="icon-{text:1308 Social Icon 2}"></a>{/block:If1308SocialIcon2}
-                {block:If1310SocialIcon3}<a href="{text:1311 Social Icon 3 URL}" class="icon-{text:1310 Social Icon 3}"></a>{/block:If1310SocialIcon3}
-            </p>
-        </div>
-    </div>
-</div>
+
 <!-- /COPYRIGHTS -->
 
 {block:Twitter}
